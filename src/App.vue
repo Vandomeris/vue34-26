@@ -15,6 +15,7 @@
     <TodoEditItem
       @edit="changeStatus(todo.id)"
       @change-todo="(e: string) => editTodo(todo.id, e)"
+      @delete="(e: number) => deleteTodo(e)"
       v-for="todo in todos"
       :key="todo.id"
       :id="todo.id"
@@ -25,15 +26,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import type { TodoItem } from './types/ToDo'
 import TodoEditItem from './components/TodoEditItem.vue'
 
-const todos = ref<TodoItem[]>([
-  { id: 1, title: 'Покормить кота', completed: false },
-  { id: 2, title: 'Позавтракать', completed: true },
-  { id: 3, title: 'Купить молоко', completed: false },
-])
+const todos = ref<TodoItem[]>([])
 
 const showAdd = ref(false)
 
@@ -64,6 +61,26 @@ function changeStatus(id: number) {
     todos.value[index]!.completed = !todos.value[index]!.completed
   }
 }
+
+function deleteTodo(id: number) {
+  todos.value = todos.value.filter((todo) => todo.id !== id)
+}
+
+onMounted(() => {
+  if (localStorage.getItem('todos')) {
+    todos.value = JSON.parse(localStorage.getItem('todos')!)
+  }
+})
+
+watch(
+  () => todos.value,
+  (todos) => {
+    localStorage.setItem('todos', JSON.stringify(todos))
+  },
+  {
+    deep: true,
+  },
+)
 </script>
 
 <style scoped>

@@ -7,7 +7,7 @@
     <input type="checkbox" :checked="todo.completed" @change="$emit('edit')" />
 
     <button @click="editTodo()">{{ isEditing ? 'Save' : 'Edit' }}</button>
-    <button>Delete</button>
+    <button @click="$emit('delete', todo.id)">Delete</button>
   </div>
 </template>
 
@@ -17,7 +17,7 @@ import { ref } from 'vue'
 
 const todo = defineProps<TodoItem>()
 
-const emits = defineEmits(['changeTodo', 'edit'])
+const emits = defineEmits(['changeTodo', 'edit', 'delete'])
 
 const isEditing = ref(false)
 
