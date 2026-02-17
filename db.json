@@ -1,0 +1,94 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Samsung S23",
+      "price": 1000,
+      "category": "Smartphones",
+      "description": "Флагманский смартфон с отличной камерой и производительностью.",
+      "rating": 4.8,
+      "stock": 15
+    },
+    {
+      "id": "2",
+      "title": "Xiaomi 11 Lite",
+      "price": 700,
+      "category": "Smartphones",
+      "description": "Легкий и тонкий смартфон с ярким AMOLED-экраном.",
+      "rating": 4.5,
+      "stock": 23
+    },
+    {
+      "id": "3",
+      "title": "Apple iPhone 15 Pro",
+      "price": 1200,
+      "category": "Smartphones",
+      "description": "Титановый корпус, чип A17 Pro и улучшенная камера.",
+      "rating": 4.9,
+      "stock": 8
+    },
+    {
+      "id": "4",
+      "title": "Google Pixel 8",
+      "price": 899,
+      "category": "Smartphones",
+      "description": "Чистый Android, лучшая камера для фотосъемки.",
+      "rating": 4.7,
+      "stock": 12
+    },
+    {
+      "id": "5",
+      "title": "OnePlus 12",
+      "price": 850,
+      "category": "Smartphones",
+      "description": "Быстрая зарядка и высокая производительность.",
+      "rating": 4.6,
+      "stock": 19
+    },
+    {
+      "id": "6",
+      "title": "MacBook Pro 14",
+      "price": 2000,
+      "category": "Laptops",
+      "description": "Мощный ноутбук для профессионалов с чипом M3.",
+      "rating": 4.9,
+      "stock": 5
+    },
+    {
+      "id": "7",
+      "title": "Dell XPS 15",
+      "price": 1800,
+      "category": "Laptops",
+      "description": "Премиальный ноутбук с отличным дисплеем.",
+      "rating": 4.7,
+      "stock": 7
+    },
+    {
+      "id": "8",
+      "title": "ASUS ROG Strix G16",
+      "price": 1500,
+      "category": "Laptops",
+      "description": "Игровой ноутбук с мощной видеокартой.",
+      "rating": 4.8,
+      "stock": 11
+    },
+    {
+      "id": "9",
+      "title": "Sony WH-1000XM5",
+      "price": 400,
+      "category": "Headphones",
+      "description": "Лучшее шумоподавление и высокое качество звука.",
+      "rating": 4.9,
+      "stock": 25
+    },
+    {
+      "id": "10",
+      "title": "Apple AirPods Pro 2",
+      "price": 250,
+      "category": "Headphones",
+      "description": "Беспроводные наушники с отличной интеграцией в экосистему Apple.",
+      "rating": 4.8,
+      "stock": 30
+    }
+  ]
+}
