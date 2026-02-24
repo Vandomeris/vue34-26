@@ -11,8 +11,8 @@
       </div>
       <p>{{ product.description }}</p>
       <RouterLink class="px-2 py-1 rounded bg-orange-600 text-white" :to="`/products/${product.id}`"
-        >Подробнее</RouterLink
-      >
+        >Подробнее
+      </RouterLink>
     </div>
   </div>
   <div v-else>
