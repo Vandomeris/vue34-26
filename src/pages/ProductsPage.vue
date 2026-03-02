@@ -10,6 +10,7 @@
         <span>${{ product.price }}</span>
       </div>
       <p>{{ product.description }}</p>
+      <BuyButton :product="product" />
       <RouterLink class="px-2 py-1 rounded bg-orange-600 text-white" :to="`/products/${product.id}`"
         >Подробнее
       </RouterLink>
@@ -21,8 +22,9 @@
 </template>
 
 <script setup lang="ts">
+import BuyButton from '@/components/BuyButton.vue'
 import type { Product } from '@/types/Products'
-import { ref } from 'vue'
+import { inject, ref, type Reactive } from 'vue'
 import { onMounted } from 'vue'
 
 const products = ref<Product[]>([])
@@ -32,4 +34,6 @@ onMounted(async () => {
   const data = await resp.json()
   products.value = data
 })
+
+const cart = inject<Reactive<Product[]>>('cart', [])
 </script>
