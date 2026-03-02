@@ -1,9 +1,14 @@
 <script setup lang="ts">
-import { provide, reactive } from 'vue'
+import { provide, reactive, watch } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
-import type { Product } from './types/Products'
+import type { ProductInCart } from './types/Products'
+import SlotItem from './components/SlotItem.vue'
 
-const cart = reactive<Product[]>([])
+const cart = reactive<ProductInCart[]>(JSON.parse(localStorage.getItem('cart')!) || [])
+
+watch(cart, () => {
+  localStorage.setItem('cart', JSON.stringify(cart))
+})
 
 provide('cart', cart)
 </script>
@@ -18,6 +23,8 @@ provide('cart', cart)
       <RouterLink to="/cart">Корзина</RouterLink>
     </nav>
   </header>
+
+  <SlotItem> </SlotItem>
 
   <main class="container mx-auto">
     <RouterView />

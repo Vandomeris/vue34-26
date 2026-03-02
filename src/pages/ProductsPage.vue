@@ -24,7 +24,7 @@
 <script setup lang="ts">
 import BuyButton from '@/components/BuyButton.vue'
 import type { Product } from '@/types/Products'
-import { inject, ref, type Reactive } from 'vue'
+import { ref } from 'vue'
 import { onMounted } from 'vue'
 
 const products = ref<Product[]>([])
@@ -34,6 +34,4 @@ onMounted(async () => {
   const data = await resp.json()
   products.value = data
 })
-
-const cart = inject<Reactive<Product[]>>('cart', [])
 </script>
