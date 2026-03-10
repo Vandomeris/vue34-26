@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { provide, reactive, watch } from 'vue'
+import { provide, reactive, ref, watch } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import type { ProductInCart } from './types/Products'
 import SlotItem from './components/SlotItem.vue'
+import { userStore } from './stores'
 
 const cart = reactive<ProductInCart[]>(JSON.parse(localStorage.getItem('cart')!) || [])
 
@@ -11,6 +12,12 @@ watch(cart, () => {
 })
 
 provide('cart', cart)
+
+const newUser = ref('')
+
+function createUser() {
+  userStore.list.push(newUser.value)
+}
 </script>
 
 <template>
@@ -30,5 +37,8 @@ provide('cart', cart)
     <RouterView />
   </main>
 
-  <footer></footer>
+  <footer>
+    <input type="text" v-model="newUser" />
+    <button @click="createUser()">Создать</button>
+  </footer>
 </template>

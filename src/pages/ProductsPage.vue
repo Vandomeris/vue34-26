@@ -1,6 +1,10 @@
 <template>
   <h1>Каталог товаров</h1>
-
+  <div>
+    <p v-for="(user, index) in userStore.list" :key="index">
+      {{ user }}
+    </p>
+  </div>
   <div v-if="products.length" class="grid grid-cols-5 gap-5">
     <div v-for="product in products" :key="product.id">
       <p>{{ product.title }}</p>
@@ -26,7 +30,7 @@ import BuyButton from '@/components/BuyButton.vue'
 import type { Product } from '@/types/Products'
 import { ref } from 'vue'
 import { onMounted } from 'vue'
-
+import { userStore } from '@/stores'
 const products = ref<Product[]>([])
 
 onMounted(async () => {
